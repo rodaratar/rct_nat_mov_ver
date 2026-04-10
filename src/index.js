@@ -12,7 +12,7 @@ const pool = new Pool({
 });
 
 // PUSH
-app.post('/sync/push', async (req, res) => {
+app.post('/api/sync/push', async (req, res) => {
   const features = req.body;
 
   try {
@@ -50,7 +50,7 @@ app.post('/sync/push', async (req, res) => {
 });
 
 // PULL
-app.get('/sync/pull', async (req, res) => {
+app.get('/api/sync/pull', async (req, res) => {
   const { minX, minY, maxX, maxY, since } = req.query;
 
   const result = await pool.query(`
@@ -68,7 +68,7 @@ app.get('/sync/pull', async (req, res) => {
 });
 
 // PUNTOS
-app.get('/puntos', async (req, res) => {
+app.get('/api/puntos', async (req, res) => {
   const result = await pool.query(`SELECT * FROM features_2 LIMIT 100`);
   res.json(result.rows);
 });
