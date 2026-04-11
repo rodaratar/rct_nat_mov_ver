@@ -69,8 +69,20 @@ app.get('/sync/pull', async (req, res) => {
 });
 
 // PUNTOS
-app.get('/puntos', async (req, res) => {
+app.get('/puntos_A', async (req, res) => {
   const result = await pool.query(`SELECT * FROM features_2 LIMIT 100`);
+  res.json(result.rows);
+});
+
+// PUNTOS
+app.get('/puntos_B', async (req, res) => {
+  const result = await pool.query(`SELECT * FROM features_6 LIMIT 100`);
+  res.json(result.rows);
+});
+
+// PUNTOS
+app.get('/puntos_C', async (req, res) => {
+  const result = await pool.query(`SELECT * FROM features_5 LIMIT 100`);
   res.json(result.rows);
 });
 
