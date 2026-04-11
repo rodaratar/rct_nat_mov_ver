@@ -10,7 +10,7 @@ console.log("URL:", process.env.POSTGRES_URL); // 👈 para probar
 async function seedPoints() {
   try {
     await sql`
-      CREATE TABLE IF NOT EXISTS features_6 (
+      CREATE TABLE IF NOT EXISTS features (
         id TEXT PRIMARY KEY,
         type TEXT,
         properties JSONB,
@@ -31,7 +31,7 @@ async function seedPoints() {
 seedPoints();
 
 // para crear la tabla
-// node src/createTable/seed.js
+// node src/seed/createTable.js
 // node src/index.js
 
 
