@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   try {
     for (const f of features) {
       await pool.query(`
-        INSERT INTO features (id, type, properties, geom, updated_at, deleted_at, sync_status, version)
+        INSERT INTO features_6 (id, type, properties, geom, updated_at, deleted_at, sync_status, version)
         VALUES (
           $1,$2,$3,
           ST_GeomFromText($4, 4326),
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
           deleted_at = EXCLUDED.deleted_at,
           sync_status = EXCLUDED.sync_status,
           version = EXCLUDED.version
-        WHERE features_2.version < EXCLUDED.version
+        WHERE features_6.version < EXCLUDED.version
       `, [
         f.id, f.type, f.properties, f.geom,
         f.updated_at, f.deleted_at, f.sync_status, f.version
