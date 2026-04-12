@@ -7,7 +7,7 @@ const pool = new Pool({
 
 export default async function handler(req, res) {
   try {
-    const result = await pool.query('SELECT * FROM features_5 LIMIT 100');
+    const result = await pool.query('SELECT * FROM features_6 LIMIT 100');
     res.status(200).json(result.rows);
   } catch (err) {
     console.error(err);

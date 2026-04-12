@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   try {
     for (const f of features) {
       await pool.query(`
-        INSERT INTO features_2 (id, type, properties, geom, updated_at, deleted_at, sync_status, version)
+        INSERT INTO features (id, type, properties, geom, updated_at, deleted_at, sync_status, version)
         VALUES (
           $1,$2,$3,
           ST_GeomFromText($4, 4326),
